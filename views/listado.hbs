@@ -1,0 +1,82 @@
+<main>
+    <div class="heading">
+        <h2>Listado de Productos</h2>
+    </div>
+
+    <table id="table">
+
+        <thead>
+            <tr class="btn-group">
+                <th colspan="7">
+                    <a href="/listado/addItem"><input type="button" value="Agregar" class="btn-editar"></a>
+                </th>
+            </tr>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>origen</th>
+                <th>presentación</th>
+                <th>precio</th>
+                <th>imagen</th>
+                <th>acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{origin}}</td>
+                <td>{{presentation}}</td>
+                <td>$ {{price}}</td>
+                <td><img src={{imageURL}} alt=""> </td>
+                <td class="btn-group">
+                    <input type="button" value="Borrar" class="btn-borrar" data-bs-toggle="modal"
+                        data-bs-target="#modalConfirm" data-id="{{id}}" data-name="{{name}}">
+
+                    <a href="/listado/editItem/{{id}}"><input type="button" value="Editar" class="btn-editar"></a>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+
+    {{!-- modal --}}
+    <div class="modal" tabindex="-1" id="modalConfirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirma borrado?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a id="link" /><button type="button" class="btn btn-danger">Borrar</button></a>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const table = document.getElementById("table");
+    table.addEventListener("click", handleDelete);
+    const para = document.querySelectorAll("p");
+    const link = document.getElementById("link")
+    function handleDelete(e) {
+        para[0].innerText = e.target.dataset.id
+        para[1].innerText = e.target.dataset.name
+        link.setAttribute("href", `/listado/delete/${e.target.dataset.id}`)
+    }
+</script>

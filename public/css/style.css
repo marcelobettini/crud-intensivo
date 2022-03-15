@@ -1,0 +1,101 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header,
+.heading {
+    text-align: center;
+}
+
+
+/*Estilizando los formularios login y addItem*/
+
+
+/*table styling*/
+
+table {
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 80%;
+    background: rgba(143, 188, 143, 0.479);
+}
+
+tr th:nth-child(1),
+tr td:nth-child(1),
+tr th:nth-child(5),
+tr td:nth-child(5),
+tr th:nth-child(6),
+tr td:nth-child(6),
+tr th:last-child,
+td:last-child {
+    text-align: center;
+}
+
+tbody tr,
+thead {
+    border-bottom: 1px solid;
+}
+
+thead {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    text-align: left;
+    height: 7rem;
+}
+
+tbody {
+    font-size: 1.2rem;
+}
+
+td {
+    min-width: 2.5em;
+}
+
+.btn-group button,
+.btn-group input {
+    width: 5em;
+    padding: 10px;
+    /* Some padding */
+    margin: 10px;
+    cursor: pointer;
+    /* Pointer/hand icon */
+}
+
+.btn-editar {
+    background-color: #066b46;
+    border: none;
+    color: white;
+}
+
+.btn-borrar {
+    background-color: #b62b2b;
+    border: none;
+    color: white;
+}
+
+.btn-go-back {
+    background-color: #c8620d;
+    border: none;
+    color: white;
+}
+
+.btn-borrar:hover,
+.btn-logout:hover,
+.btn-editar:hover,
+.btn-go-back:hover {
+    transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em 0;
+}

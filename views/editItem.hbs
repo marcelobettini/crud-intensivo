@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    {{!-- la propiedad enctype="multipart/form-data" habilita al form a enviar también archivos --}}
+    <form class="col-10 col-md-7 col-lg-5" action="/listado/editItem" method="post" enctype="multipart/form-data">
+        <input class="form-control" type="text" name="id" size="6" value="{{product.id}}" readonly="readonly">
+        <input class="form-control" type="text" name="name" size="50" maxlength="20" value="{{product.name}}">
+        <input class="form-control" type="text" name="origin" size="50" maxlength="20" value="{{product.origin}}">
+        <input class="form-control" type="text" name="presentation" size="50" maxlength="140"
+            value="npm {{product.presentation}}">
+        <textarea class="form-control" placeholder="Ingrese una descripción..." name="description" rows="6" cols="48"
+            maxlength="280">{{product.description}}</textarea>
+
+        {{!-- Podemos usar un campo oculto para enviar el valor de "image" en el caso de que no haya cambios.
+        Aún así, necesitaremos esa información para enviarla en una edición de producto en la que la imagen
+        siga siendo la misma --}}
+        <input type="text" value={{product.image}} name="prevImage" hidden>
+        <label for="imageFile">Imagen del producto</label>
+        <input type="file" name="imageFile">
+        <div class="radio">
+            <h5>intensidad: {{product.intensity}}</h5>
+            <label class="form-check-label" for="1">1</label>
+            <input class="form-check-input" type="radio" name="intensity" value="1" checked="checked">
+            <label class="form-check-label" for="2">2</label>
+            <input class="form-check-input" type="radio" name="intensity" value="2">
+            <label class="form-check-label" for="3">3</label>
+            <input class="form-check-input" type="radio" name="intensity" value="3">
+            <label class="form-check-label" for="4">4</label>
+            <input class="form-check-input" type="radio" name="intensity" value="4">
+            <label class="form-check-label" for="5">5</label>
+            <input class="form-check-input" type="radio" name="intensity" value="5">
+            <label class="form-check-label" for="6">6</label>
+            <input class="form-check-input" type="radio" name="intensity" value="6">
+        </div>
+        <label for="price">Precio en $</label>
+        <input class="price" type="number" name="price" min="1" max="9999" size="10" value="{{product.price}}">
+        <div>
+            <input type="submit" value="Cambiar" class="btn btn-success">
+        </div>
+    </form>
+</div>

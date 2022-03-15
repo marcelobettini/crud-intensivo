@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    {{!-- la propiedad enctype="multipart/form-data" habilita al form a enviar también archivos --}}
+    <form class="col-10 col-md-7 col-lg-5" action="/listado/addItem" method="post" enctype="multipart/form-data">
+
+        <input class="form-control" type="text" placeholder="Nombre del producto..." name="name" size="50"
+            maxlength="20">
+        <input class="form-control" type="text" placeholder="País de origen..." name="origin" size="50" maxlength="20">
+        <input class="form-control" type="text" placeholder="Presentación..." name="presentation" size="50"
+            maxlength="140">
+        <textarea class="form-control" placeholder="Ingrese una descripción..." name="description" rows="6" cols="48"
+            maxlength="280"></textarea>
+        {{!-- cambiamos el campo que recibía un id por un input de tipo file --}}
+        <label class="form-label" for="imageFile">Imagen</label>
+        <input class="form-control" type="file" name="imageFile">
+        <div class="radio">
+            <h4>intensidad</h4>
+            <label class="form-check-label" for="1">1</label>
+            <input class="form-check-input" type="radio" name="intensity" value="1">
+            <label class="form-check-label" for="2">2</label>
+            <input class="form-check-input" type="radio" name="intensity" value="2">
+            <label class="form-check-label" for="3">3</label>
+            <input class="form-check-input" type="radio" name="intensity" value="3">
+            <label class="form-check-label" for="4">4</label>
+            <input class="form-check-input" type="radio" name="intensity" value="4">
+            <label class="form-check-label" for="5">5</label>
+            <input class="form-check-input" type="radio" name="intensity" value="5">
+            <label class="form-check-label" for="6">6</label>
+            <input class="form-check-input" type="radio" name="intensity" value="6">
+        </div>
+        <label class="form-label" for="price">Precio en $</label>
+        <input class="form-control" type="number" name="price" min="1" max="9999">
+        <div class="mt-4">
+            <input class="btn btn-success" type="submit" value="Enviar">
+            <a href="/listado"><input type="button" value="Cancelar" class="btn btn-primary"></a>
+        </div>
+    </form>
+</div>
